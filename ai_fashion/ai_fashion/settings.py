@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',  # Your app
     'corsheaders',  # Added for CORS
+    'auth_app', #authentication portal
 ]
 
 # Middleware
@@ -95,3 +96,11 @@ USE_TZ = True
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
